@@ -23,14 +23,15 @@ app.get('/upload', (req, res) => {
 });
 
 
-app.post('/upload', function(req, res) {
+app.post('/upload', (req, res) => {
     let sampleFile;
     let fileName;
     let newFileName;
     let uploadPath;
   
-    if (!req.files || Object.keys(req.files).length === 0 && req.body.length === 0) {
-      return res.status(400).send('No files were uploaded.');
+    if(req.body.fileName == "" || (!req.files || Object.keys(req.files).length === 0) ){
+
+            return res.status(400).send('No files were uploaded. Please complete input fields');
     }
   
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
