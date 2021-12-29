@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
-    <h1>WELCOME</h1>
-    <a href="localhost:3000/upload">file UpLoad</a>
+    <div class="middleContent">
+        <h2>Welcome</h2>
+        <h4>
+            <a href="http://localhost:3000/home">Home</a> 
+            <a href="http://localhost:3000/upload">Upload</a>
+        </h4>
+
+        <div class="items-display">
+            <% if (datas.length > 0) {%> 
+                <% datas.forEach(datas => { %>
+                    <div class="items">
+                        <div class="image-container">
+                            <img class="items-image" src="/uploads/<%=datas.img  %> " alt="image: <%= datas.name %>">
+                        </div>
+                        <button class="btn-more"> more details </button>
+                        <div class="details-area">
+                            <span  class="links">
+                                 <a href="#">Home</a>
+                                 <b> . </b>
+                                 <a href="#">images</a>
+                            </span> <br>
+                            <span class="name"> <%= datas.name %> </span><br>
+                            <!--span class="old-price">$2000.00</span> <span class="price"> $1500.00 </span> <br-->
+                            <button class="add-btn"> Vote </button>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %> 
+                <p>No Data to display</p>
+            <% }  %> 
+        </div>
+    </div>
 </body>
 </html>

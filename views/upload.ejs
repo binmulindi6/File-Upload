@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <title>Upload</title>
-
-    <style>
-        .container{
-            margin-top: 100px;
-            width: 60%;
-        }
-    </style>
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
-    <div class="container">
-        <h2> Upload A file </h2>
+    <div class="middleContent"> 
+        <h2>Welcome</h2>
+        <h4>
+            <a href="http://localhost:3000/home">Home</a> 
+            <a href="http://localhost:3000/upload">Upload</a>
+        </h4>
+    </div>
+
+    <div class="container upload-container">
+        <h2> Upload an Imange </h2>
         <form  ref='uploadForm' action='/upload' method='post' encType="multipart/form-data">
-            <div class="form-group">
-                <label for="fileName"> File Name </label>
-                <input type="text" name="fileName" class="form-control" id="exampleInputName">
+            <div class="form-group input-grp">
+                <label for="fileName"> Name </label>
+                <input type="text" name="fileName" class="form-control" id="exampleInputName" required>
             </div>
-            <div class="form-group">
-                <label for="sampleFile"> File To Upload </label>
-                <input type="file" name="sampleFile" />
+            <div class="form-group input-grp">
+                <label for="sampleFile"> Your Image: </label> <br>
+                <input type="file" name="sampleFile" accept=".jpg,.jpeg,.png" required/>
             </div>
-            <input type='submit' class="btn btn-default" value='Upload' />
+            <input type='submit' class="btn btn-primary input-grp" value='Upload' />
         </form>
         
     </div>
